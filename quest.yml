@@ -37,6 +37,7 @@ steps:
   - segment-basics
   - prepare-segment-account
   - add-segment-snippet
+  - commit-pull-request-snippet
   - send-test-event
   - verify-in-debugger
   - quiz-segment-install
