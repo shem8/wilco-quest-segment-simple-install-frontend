@@ -1,0 +1,43 @@
+id: welcome-overview
+learningObjectives:
+  - Understand the value of Segment and what this quest will cover.
+hints:
+  - "If you're new to Segment, check out their official overview: [What is
+    Segment?](https://segment.com/docs/connections/overview/)"
+  - "Want a quick refresher on customer data platforms? Here's a solid intro:
+    [CDP
+    Explained](https://www.salesforce.com/products/platform/best-practices/cust\
+    omer-data-platform/)"
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Hey there! I'm Lucca, your friendly (and occasionally sarcastic)
+              senior engineer. Welcome to the quest! Ness asked me to make sure
+              you get up to speed with analytics, so let's make this
+              painless--and maybe even fun.
+
+              First things first: why should you care about Segment? Segment is a customer data platform (CDP) that helps you collect, clean, and route analytics data from your app to all the tools your team uses--think analytics, marketing, support, and more. Instead of wiring up a dozen different SDKs, you drop in Segment and let it handle the heavy lifting. That means less code, fewer bugs, and way more flexibility when your boss (Ness) inevitably changes her mind about which analytics tool to use next month.
+
+              In this quest, you'll learn how to set up Segment's JavaScript SDK in the Anythink Market frontend--a React app. We'll go step-by-step: adding the Segment snippet, sending your first custom event, and confirming it all works using Segment's live Debugger. Along the way, I'll share best practices for keeping your environments (dev vs. prod) clean and your event data trustworthy.
+
+              By the end, you'll have a working Segment integration and the confidence to instrument analytics in any web project. Plus, you'll be able to impress Ness with your new skills (and maybe even automate some of her reporting headaches).
+
+              Let's get started!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Ready to get hands-on? Let's dive in and make your first Segment
+                integration a breeze!
+      - actionId: finish_step
