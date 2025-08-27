@@ -2,7 +2,7 @@ id: commit-pull-request-snippet
 learningObjectives:
   - Practice using the Pull Request workflow for analytics code changes.
 hints:
-  - "If you're new to PRs, GitHub has a great guide: [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+  - 'If you''re new to PRs, GitHub has a great guide: [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).'
   - Make sure you're committing the actual file where you added the Segment snippet--usually something like `src/index.js` or `src/App.js` in a React project.
 startFlow:
   do:
