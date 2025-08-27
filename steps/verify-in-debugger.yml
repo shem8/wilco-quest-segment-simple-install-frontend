@@ -1,0 +1,54 @@
+id: verify-in-debugger
+learningObjectives:
+  - Verify that your event appears in the Segment Debugger.
+hints:
+  - "If your event isn't showing up, double-check your Segment write key and
+    make sure your browser isn't blocking scripts. Segment's Debugger docs can
+    help: [Segment Debugger
+    Guide](https://segment.com/docs/getting-started/02-simple-install/#)."
+  - Try opening your browser's DevTools Console to see if there are any
+    JavaScript errors related to Segment. Sometimes a typo in the snippet or a
+    missing dependency can block events from firing.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, you've sent your first custom event using Segment's track
+              method. Now, let's make sure it actually made it to Segment.
+              There's nothing worse than thinking your analytics are working,
+              only to find out later that your events are lost in the void. (Ask
+              me how I know. Ness still brings up that time I tracked 0% of user
+              signups.)
+
+              Segment's Debugger is your real-time window into what's coming through your source. It's the fastest way to confirm that your integration is working--no waiting, no guesswork. Here's how you can use it:
+
+              1. Head to your [Segment workspace](https://app.segment.com/) and select the JavaScript source you set up for Anythink Market.
+
+              2. In the left sidebar, click on **Debugger**. This opens the live event stream for your source.
+
+              3. Trigger your test event again in your frontend (for example, by clicking the button or action you wired up in the last step).
+
+              4. Watch the Debugger. If everything's set up correctly, you'll see your event appear almost instantly, complete with its name and properties.
+
+              If you don't see your event, don't panic! Double-check that your Segment write key is correct, your snippet is loaded, and your track call is firing. Sometimes a browser refresh or clearing the cache helps too.
+
+              Why does this matter? The Debugger is your first line of defense against silent analytics failures. It's also a great way to validate event payloads before you send data to downstream tools. Get in the habit of checking it every time you add or change tracking.
+
+              If you want more details, Segment's official docs have a [simple install guide](https://segment.com/docs/getting-started/02-simple-install/#) that covers Debugger basics. But honestly, you're already doing the real thing.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Once you see your event in the Debugger, you'll know your Segment
+                integration is working. Let's keep the momentum going!
+      - actionId: finish_step
