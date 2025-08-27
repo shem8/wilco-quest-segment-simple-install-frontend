@@ -2,7 +2,7 @@ id: best-practices-environments
 learningObjectives:
   - Learn best practices for separating dev and prod analytics data.
 hints:
-  - "Segment's official docs on environment separation: [Segment Simple Install Guide](https://segment.com/docs/getting-started/02-simple-install/#)"
+  - 'Segment''s official docs on environment separation: [Segment Simple Install Guide](https://segment.com/docs/getting-started/02-simple-install/#)'
   - Check the PDF 'A Basic Segment Installation' for direct advice on using environment labels and separate sources.
 startFlow:
   do:
