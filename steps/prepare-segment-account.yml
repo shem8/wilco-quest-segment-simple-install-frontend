@@ -1,0 +1,55 @@
+id: prepare-segment-account
+learningObjectives:
+  - Set up a Segment account and create a JavaScript source for development.
+hints:
+  - "If you're not sure where to find the write key, it's on your JavaScript
+    source's settings page in Segment. Here's the official guide: [Segment: Add
+    a
+    Source](https://segment.com/docs/connections/sources/catalog/libraries/webs\
+    ite/javascript/)"
+  - Keep your write key private--don't commit it to public repos. If you need to
+    reset it, you can always generate a new one from the Segment dashboard.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, time to get our hands dirty! Before we can track anything
+              in Anythink Market, we need a Segment account and a JavaScript
+              source. This is the foundation for everything else--think of it as
+              setting up the control tower before you start flying planes (or,
+              in our case, sending events).
+
+              Here's what you'll do in this step: create a free Segment workspace, add a new JavaScript source for your development environment, and grab the all-important write key. That write key is what lets your frontend talk to Segment securely--don't share it in public repos, or Ness will have words with you.
+
+              Let's break it down:
+
+              1. Go to [segment.com](https://segment.com) and sign up for a free account if you don't have one already. Use your work email if you want to keep things tidy.
+
+              2. Once you're in, Segment will prompt you to create a workspace. Name it something like "Anythink Market Dev" or whatever makes sense for your project. Workspaces help you keep different projects and environments organized.
+
+              3. Inside your workspace, click "Add Source." Choose "JavaScript" as the source type. This tells Segment you'll be sending data from a web app (like our React frontend).
+
+              4. Give your source a clear name--"Anythink Market Frontend (Dev)" is a good start. You can always add more sources later for staging or production.
+
+              5. After creating the source, Segment will show you a "Write Key." Copy this key somewhere safe (we'll use it in the next step). This is the secret sauce that connects your app to your Segment workspace.
+
+              If you get stuck, Segment's onboarding flow is pretty friendly, but you can always check their docs: [Segment: Add a Source](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/).
+
+              Ready? Go set up your Segment account and source. I'll wait right here with a fresh cup of coffee.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Once you've got your write key, you're ready to actually wire up Segment
+                in your code. Let's keep rolling!
+      - actionId: finish_step
