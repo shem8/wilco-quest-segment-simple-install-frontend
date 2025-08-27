@@ -1,5 +1,5 @@
 id: segment-simple-install-frontend
-title: 'Segment in Action: Simple Install Walkthrough for Anythink Market Frontend'
+title: 'Segment in Action: Simple Install Walkthrough'
 subtitle: >-
   Hands-on quest to integrate Segment's JavaScript SDK, send a test event, and
   verify it in the debugger using the Anythink Market frontend codebase.
@@ -17,10 +17,6 @@ description: >-
   practices for environment separation and event validation. By the end, you'll
   have a working Segment integration and the confidence to instrument analytics
   in any web project.
-
-
-  This quest is perfect for developers new to analytics or Segment, and anyone
-  looking to quickly add event tracking to a modern frontend app.
 level: beginner
 duration: 1
 skills:
@@ -44,5 +40,3 @@ steps:
   - open-question-analytics-impact
   - quest-summary-next-steps
 type: MODULE
-frameworks:
-  backend: null
