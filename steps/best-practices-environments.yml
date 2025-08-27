@@ -1,0 +1,50 @@
+id: best-practices-environments
+learningObjectives:
+  - Learn best practices for separating dev and prod analytics data.
+hints:
+  - "Segment's official docs on environment separation: [Segment Simple Install
+    Guide](https://segment.com/docs/getting-started/02-simple-install/#)"
+  - Check the PDF 'A Basic Segment Installation' for direct advice on using
+    environment labels and separate sources.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, let's talk about something that'll save you from a world
+              of pain later: keeping your development and production analytics
+              data separate. Trust me, Ness will thank you when your dashboards
+              aren't full of test events like
+              'LuccaClickedButtonForThe100thTime.'
+
+              Segment makes this easy by letting you create separate 'sources' for each environment--think one for development, one for production, maybe even one for staging if you're feeling fancy. Each source gets its own write key, which is basically a unique ID that tells Segment where the data is coming from and where it should go. If you mix up your keys, you might end up sending test data to your real analytics, which is... not ideal.
+
+              When you create a source in Segment, you can (and should) add an environment label--like 'dev' or 'prod.' Segment strongly recommends this, so you always know which source is which. For example, when you're setting up a dev source, add a label like 'dev' or 'test' in the Labels field. This helps you (and your team) quickly spot which data is safe to play with and which is business-critical. You can see this advice straight from the Segment docs: 'Segment recommends you to create and use separate sources for each of your environments (production, development, staging) to prevent testing and development activities from filling production systems with invalid data.'
+
+              Here's the workflow I recommend: 
+
+              1. Create a separate Segment source for each environment (dev, prod, staging, etc.).
+
+              2. Give each source a clear name and environment label.
+
+              3. Use the correct write key in your app's environment-specific config files (like .env.development and .env.production). Double-check these before deploying!
+
+              This way, your dev events stay in dev, your prod events stay in prod, and you can test new analytics features without polluting your real data. It's a small setup step that pays off big time when you're debugging or reporting to Ness. If you want to see how Segment recommends setting this up, check out their docs: https://segment.com/docs/getting-started/02-simple-install/#
+
+              Let me know if you want to see an example of how to wire up different write keys in your React app's environment files.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Nice! Now you know how to keep your analytics data clean and organized.
+                This will save you (and Ness) a ton of headaches down the road.
+      - actionId: finish_step
