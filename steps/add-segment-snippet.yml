@@ -1,0 +1,86 @@
+id: add-segment-snippet
+learningObjectives:
+  - Install the Segment JavaScript SDK in the Anythink Market frontend.
+hints:
+  - You'll find the right place to paste the Segment snippet in
+    `frontend/public/index.html`, just before the closing `</head>` tag. See the
+    file for the exact spot.
+  - "If you need a refresher on the Segment snippet or where to find your write
+    key, check the official docs: [Segment JavaScript
+    Quickstart](https://segment.com/docs/connections/sources/catalog/libraries/\
+    website/javascript/)."
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, time to get our hands dirty! We're going to install the
+              Segment JavaScript SDK so Anythink Market can start sending
+              analytics events. This is the foundation for all the tracking
+              magic you'll do later. Ness wants to see real data flowing, so
+              let's make sure we get this right.
+
+              For a React app like Anythink Market, the best place to add the Segment snippet is in the main HTML entry point. In our repo, that's the `frontend/public/index.html` file. This ensures Segment loads as soon as the app does--no matter what route the user lands on. (You could also use `index.js` for more advanced setups, but the HTML approach is the Segment-recommended quickstart.)
+
+              Here's what you need to do:
+
+
+              1. Log in to your Segment workspace and grab your JavaScript source snippet. It'll look something like this (but use your actual write key!):
+
+
+              ```html
+
+              <script>
+                !function(){var analytics=window.analytics=window.analytics||[];
+                if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");
+                else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];
+                analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};
+                for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}
+                analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;
+                n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";
+                var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};
+                analytics.SNIPPET_VERSION="4.15.3";
+                analytics.load("YOUR_WRITE_KEY");
+                analytics.page();
+                }}();
+              </script>
+
+              ```
+
+
+              2. Open `frontend/public/index.html` and paste the snippet just before the closing `</head>` tag. This ensures Segment loads before your app renders.
+
+
+              3. Double-check that you've replaced `YOUR_WRITE_KEY` with the actual write key from your Segment JavaScript source. (If you're not sure where to find it, it's in the Segment app under your source's API Keys tab.)
+
+
+              4. Save the file. That's it! Segment will now load on every page of your app.
+
+              If you want to see what this looks like in context, here's a snippet from your current `index.html` file:
+
+
+              ```html
+
+              <head>
+                ...
+                <title>Anythink Market</title>
+              </head>
+
+              ```
+
+
+              Just add the Segment script right before `</head>`. Don't worry about breaking anything--this is a safe, non-blocking script that won't slow down your app's load time.
+
+              Once you've added the snippet, commit your changes and push to your branch. If you're working in a Codespace, you can preview the app and Segment will be live! Ness will be thrilled to see those events start rolling in.
+
+              Ready? Go ahead and add the Segment snippet now. Ping me if you hit any snags--I've seen every possible copy-paste mishap.
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca
