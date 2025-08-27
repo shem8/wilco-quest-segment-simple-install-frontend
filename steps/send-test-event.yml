@@ -1,0 +1,74 @@
+id: send-test-event
+learningObjectives:
+  - Send a custom test event from the frontend using Segment's track method.
+hints:
+  - "Check out the Segment docs for the `track` method: [Segment JavaScript
+    track
+    reference](https://segment.com/docs/connections/sources/catalog/libraries/w\
+    ebsite/javascript/#track)"
+  - If you don't see the analytics object, make sure the Segment snippet is
+    loaded in your `public/index.html` or equivalent entry point.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, time to get our hands dirty! Now that Segment's
+              JavaScript SDK is installed in the Anythink Market frontend, let's
+              actually send some data. Ness wants to see proof that our
+              integration works, so let's wire up a test event using Segment's
+              `track` method.
+
+              We'll keep it simple: let's instrument the `frontend/src/components/Header.js` component. This file is a great candidate because it's always visible, and it already has a button for logging in/out. We'll add a new button labeled "Send Test Event" right next to the existing ones. When clicked, this button will fire a custom event to Segment.
+
+              Here's what you need to do:
+
+
+              1. Open `frontend/src/components/Header.js` in your Codespace.
+
+              2. Import the global `analytics` object (it should be available if you followed the Segment snippet install step).
+
+              3. Add a new button to the header, labeled "Send Test Event".
+
+              4. In the button's `onClick` handler, call `analytics.track('Test Event', { source: 'Header', time: new Date().toISOString() })`.
+
+              5. Save your changes, push your branch, and open a Pull Request (PR) as usual.
+
+
+              This will send a custom event named `Test Event` with a couple of properties. We'll use the Segment Debugger in the next step to confirm it worked.
+
+              Here's a code snippet to guide you. Add this inside the `<nav>` element in `Header.js`, right next to the other buttons:
+
+
+              ```jsx
+
+              <button onClick={() => {
+                if (window.analytics) {
+                  window.analytics.track('Test Event', {
+                    source: 'Header',
+                    time: new Date().toISOString(),
+                  });
+                  alert('Test Event sent!');
+                } else {
+                  alert('Segment analytics not loaded.');
+                }
+              }}>
+                Send Test Event
+              </button>
+
+              ```
+
+
+              This checks if the Segment library is loaded before sending the event, just to be safe. If you want to get fancy, you can style the button to match the others, but function over form for now!
+
+              Once you've committed and pushed your changes, open a PR and tag me (Lucca) for review. If you get stuck, check the Segment docs for the [`track` method](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/#track) or peek at the example events in the Segment documentation PDF we provided.
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca
