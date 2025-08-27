@@ -1,0 +1,47 @@
+id: segment-basics
+learningObjectives:
+  - Grasp what Segment is and how it fits into modern web analytics.
+hints:
+  - "If you want to dig deeper into what a Customer Data Platform is, Segment's
+    own docs have a great intro: [What is a
+    CDP?](https://segment.com/academy/intro-to-cdp/what-is-a-cdp/)"
+  - "Curious about the JavaScript SDK? Check out the official docs: [Segment
+    JavaScript
+    Quickstart](https://segment.com/docs/connections/sources/catalog/libraries/\
+    website/javascript/quickstart/)"
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, let's get to the heart of why we're here: understanding
+              what Segment is, and why it's such a big deal for web analytics. I
+              promise, this isn't just another buzzword--Segment can actually
+              make your life as a developer a whole lot easier (and Ness will
+              love the dashboards).
+
+              So, what is Segment? In a nutshell, Segment is a Customer Data Platform (CDP). Think of it as the central nervous system for your app's analytics and customer data. Instead of wiring up a dozen different analytics tools (Google Analytics, Mixpanel, Facebook Pixel, etc.) directly into your codebase, you send all your events to Segment. Segment then routes those events to any analytics or marketing tool you want--no more spaghetti code or copy-pasting tracking snippets everywhere.
+
+              Why does this matter? Well, modern web apps like Anythink Market need to understand what users are doing--what they click, what they buy, where they drop off. This data helps teams improve the product, fix pain points, and, yes, even impress investors. But managing all that data collection and integration can get messy fast. Segment gives you a single, consistent way to collect, transform, and send data wherever it needs to go.
+
+              Let's talk SDKs for a second. Segment provides SDKs for all the major platforms--JavaScript for web, iOS, Android, even server-side languages. For our quest, we'll focus on the JavaScript SDK, which is tailor-made for React apps like Anythink Market. This SDK lets you track page views, button clicks, purchases, and more, all with a few lines of code.
+
+              Here's the big win: with Segment, you instrument your events once, and you can send them to any tool you want, now or in the future. Need to add a new analytics provider? Flip a switch in the Segment dashboard--no code changes required. That's why so many teams (including ours) use Segment as the foundation for their analytics stack.
+
+              In short: Segment helps you collect the right data, keep your codebase clean, and stay flexible as your analytics needs evolve. Next up, we'll actually add Segment to the Anythink Market frontend and see it in action.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Ready to see how Segment actually gets wired up in code? Let's roll up our
+                sleeves and get hands-on in the next step!
+      - actionId: finish_step
