@@ -1,5 +1,5 @@
 id: segment-simple-install-frontend
-title: 'Segment in Action: Simple Install Walkthrough for Anythink Market Frontend'
+title: 'Segment in Action: Simple Install Walkthrough'
 subtitle: >-
   Hands-on quest to integrate Segment's JavaScript SDK, send a test event, and
   verify it in the debugger using the Anythink Market frontend codebase.
