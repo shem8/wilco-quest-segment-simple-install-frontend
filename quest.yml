@@ -1,0 +1,43 @@
+id: segment-simple-install-frontend
+title: "Segment in Action: Simple Install Walkthrough for Anythink Market Frontend"
+subtitle: Hands-on quest to integrate Segment's JavaScript SDK, send a test
+  event, and verify it in the debugger using the Anythink Market frontend
+  codebase.
+description: >-
+  Welcome to your fast-track quest for integrating Segment into a real-world
+  React project! Guided by Lucca, your friendly senior engineer, you'll learn
+  how to set up Segment's JavaScript SDK in the Anythink Market frontend, send
+  your first test event, and confirm everything works using Segment's live
+  Debugger.
+
+
+  You'll start by understanding why customer data platforms like Segment matter, then dive into hands-on coding: adding the Segment snippet, sending a custom event, and verifying your integration. Along the way, you'll pick up best practices for environment separation and event validation. By the end, you'll have a working Segment integration and the confidence to instrument analytics in any web project.
+
+
+  This quest is perfect for developers new to analytics or Segment, and anyone looking to quickly add event tracking to a modern frontend app.
+level: beginner
+duration: 1
+skills:
+  - Segment SDK installation
+  - JavaScript analytics integration
+  - React app instrumentation
+  - Event tracking and debugging
+  - Environment configuration
+  - Pull Request workflow
+  - Frontend development best practices
+repository: https://github.com/trywilco/Anythink-Market-Public
+steps:
+  - welcome-overview
+  - segment-basics
+  - prepare-segment-account
+  - add-segment-snippet
+  - commit-pull-request-snippet
+  - send-test-event
+  - verify-in-debugger
+  - quiz-segment-install
+  - best-practices-environments
+  - open-question-analytics-impact
+  - quest-summary-next-steps
+type: MODULE
+frameworks:
+  backend: null
