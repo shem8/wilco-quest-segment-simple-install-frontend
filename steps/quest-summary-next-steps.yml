@@ -2,8 +2,8 @@ id: quest-summary-next-steps
 learningObjectives:
   - Summarize what was learned and suggest next steps for deeper analytics integration.
 hints:
-  - "Segment's official docs have a great section on next steps and advanced integrations: https://segment.com/docs/getting-started/whats-next/"
-  - "To see how to connect your Segment source to destinations like Google Analytics, check out: https://segment.com/docs/connections/destinations/catalog/"
+  - 'Segment''s official docs have a great section on next steps and advanced integrations: https://segment.com/docs/getting-started/whats-next/'
+  - 'To see how to connect your Segment source to destinations like Google Analytics, check out: https://segment.com/docs/connections/destinations/catalog/'
 startFlow:
   do:
     - actionId: bot_message
