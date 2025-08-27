@@ -1,0 +1,56 @@
+id: quest-summary-next-steps
+learningObjectives:
+  - Summarize what was learned and suggest next steps for deeper analytics
+    integration.
+hints:
+  - "Segment's official docs have a great section on next steps and advanced
+    integrations: https://segment.com/docs/getting-started/whats-next/"
+  - "To see how to connect your Segment source to destinations like Google
+    Analytics, check out:
+    https://segment.com/docs/connections/destinations/catalog/"
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Wow, you made it! Let's take a quick victory lap and recap what
+              you've accomplished in this quest. I'm genuinely impressed--Ness
+              will be too (and trust me, she notices these things).
+
+              You started by understanding why customer data platforms like Segment are a game-changer for modern web apps. Then, you rolled up your sleeves and set up a Segment account, created a JavaScript source, and installed the Segment SDK in the Anythink Market frontend. Not bad for a day's work!
+
+              You practiced the pull request workflow (Ness's favorite), sent your first custom event with `analytics.track`, and confirmed it all worked using Segment's live Debugger. Along the way, you learned why it's crucial to keep dev and prod analytics separate--no one wants test data polluting real dashboards!
+
+              But this is just the beginning. With your Segment integration live, you can now turn on any destination you like--think Google Analytics, Mixpanel, or even a data warehouse for deeper analysis. Segment's Debugger is great for real-time validation, but for a more complete view of your data, consider connecting a warehouse or S3 destination. That way, you can analyze historical trends and not just live events.
+
+              Ready to level up? Here are some next steps you can try:
+
+              - **Set up your first destination**: In Segment, add Google Analytics or another tool to start seeing your events in action.
+
+              - **Instrument more events**: Track key actions like signups, purchases, or bookmarks. Start small--Segment recommends tracking a few important events and expanding over time.
+
+              - **Explore user identification**: Use `analytics.identify` to tie events to specific users, unlocking richer insights.
+
+              - **Plan a full installation**: Think through your analytics goals and map out which events matter most for your product's success.
+
+              - **Dive into advanced features**: Check out Segment's Protocols for data governance, or Unify for building complete customer profiles.
+
+              If you want to go deeper, Segment's docs are packed with guides and best practices: [Segment Documentation](https://segment.com/docs/). And if you ever get stuck, their support team is surprisingly friendly (almost as friendly as me).
+
+              You've now got the skills to instrument analytics in any web project. Go forth and make your data work for you!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Congrats again on making it through! If you ever want to nerd out about
+                advanced analytics, you know where to find me.
+      - actionId: finish_step
