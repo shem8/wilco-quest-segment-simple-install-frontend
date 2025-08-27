@@ -2,56 +2,32 @@ id: commit-pull-request-snippet
 learningObjectives:
   - Practice using the Pull Request workflow for analytics code changes.
 hints:
-  - "If you're new to PRs, GitHub has a great guide: [Creating a pull
-    request](https://docs.github.com/en/pull-requests/collaborating-with-pull-r\
-    equests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-r\
-    equest)."
-  - Make sure you're committing the actual file where you added the Segment
-    snippet--usually something like `src/index.js` or `src/App.js` in a React
-    project.
+  - "If you're new to PRs, GitHub has a great guide: [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+  - Make sure you're committing the actual file where you added the Segment snippet--usually something like `src/index.js` or `src/App.js` in a React project.
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: lucca
         messages:
-          - text: >-
-              Alright, you've added the Segment JavaScript SDK to the Anythink
-              Market frontend--great start! Now, let's make sure your changes are
-              tracked and reviewed properly. Ness is a stickler for process, and
-              analytics code is no exception. We always use Pull Requests (PRs)
-              for anything that touches production or analytics, so let's walk
-              through that workflow together.
-
+          - text: |-
+              Alright, you've added the Segment JavaScript SDK to the Anythink Market frontend--great start! Now, let's make sure your changes are tracked and reviewed properly. Ness is a stickler for process, and analytics code is no exception. We always use Pull Requests (PRs) for anything that touches production or analytics, so let's walk through that workflow together.
               First, double-check that your Segment integration code is committed. In the Anythink Market repo, you'll want to stage your changes (probably in a file like `src/index.js` or wherever you added the Segment snippet). Use the following commands in your Codespace terminal:
 
-
               ```bash
-
               git add src/index.js # or the file(s) you changed
-
               git commit -m "Add Segment analytics snippet to frontend"
-
               ```
-
 
               If you changed more than one file, add them all before committing.
-
               Next, push your branch to GitHub. If you haven't already, create a new branch for your work (we usually use something like `feature/segment-integration`):
 
-
               ```bash
-
               git checkout -b feature/segment-integration
-
               git push -u origin feature/segment-integration
-
               ```
-
               Now, open a Pull Request (PR) from your branch to `main` using the GitHub UI. In your PR description, briefly explain what you did (e.g., "Added Segment analytics snippet to initialize tracking on all pages"). Mention that this is for analytics instrumentation and tag Ness for review if you want bonus points.
-
               Why do we do this? PRs give us a chance to review analytics code for privacy, correctness, and to avoid duplicate events. Plus, it's a great way to document what's changed for future teammates (or your future self).
-
               Once your PR is open, drop the link in our team chat or wherever Ness prefers. When it's approved and merged, you'll be ready for the next step: sending your first test event and confirming it in Segment's Debugger.
 trigger:
   type: github_pr_lifecycle_status
