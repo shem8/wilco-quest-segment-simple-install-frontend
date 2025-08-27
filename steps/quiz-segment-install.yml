@@ -1,0 +1,97 @@
+id: quiz-segment-install
+learningObjectives:
+  - Check understanding of Segment installation steps and event flow.
+hints:
+  - "Double-check the Segment source write key in your code. Typos or using the
+    wrong key for the environment are common issues. See the official Segment
+    install guide:
+    https://segment.com/docs/getting-started/02-simple-install/#step-2-install-\
+    the-segment-snippet"
+  - Remember, the Debugger only shows events received by the correct Source in
+    real time. Make sure you're looking at the right Source in the Segment app.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: >-
+              Alright, time for a quick knowledge check! Before we move on, Ness
+              wants to make sure you're not just copy-pasting code, but actually
+              understanding what's happening under the hood. 
+
+
+              Here's a short quiz to lock in the key steps and troubleshooting tips for Segment integration in the Anythink Market frontend. Ready? Let's do this!
+
+
+              Question: 
+
+
+              You've just added the Segment JavaScript SDK to the Anythink Market frontend and sent your first custom event using the `track` method. However, you don't see your event in the Segment Debugger. What's the FIRST thing you should check? (Pick the best answer!)
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - Verify that the Segment write key in your code matches the one from
+            your Segment Source.
+          - Try sending the event again with a different event name.
+          - Check if your ad blocker is enabled and refresh the page.
+          - Restart your development server and clear your browser cache.
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Correct! If the write key is wrong or missing, events won't reach your
+                      Segment Source, so nothing will show up in the Debugger.
+                      This is the most common integration mistake.
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Nice work! You're getting the hang of Segment integration. Let's keep
+                      going and make sure your events are flowing smoothly.
+            - actionId: finish_step
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite. If the write key is wrong, changing the event name won't help.
+                      The event won't reach Segment at all.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Ad blockers can sometimes interfere, but the first thing to check is
+                      always your write key. If that's wrong, nothing else
+                      matters yet.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        D:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Restarting can help with some issues, but if your write key is incorrect,
+                      no amount of refreshing will fix it. Always check the
+                      write key first.
+            - actionId: replay_action
+              params:
+                actionName: quiz
